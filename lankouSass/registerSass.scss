@@ -1,7 +1,123 @@
 @charset "utf-8";
-
+*{
+	margin:0;
+	padding:0;
+}
 body{
-color:green;
-font-size:16px;
-
+	background: black;
+	// position: relative;
+	// opacity: 0.5;
+}
+.box{
+	width:886px;
+	height:490px;
+	background:#fff;
+	position:fixed;
+	left:50%;
+	top:50%;
+	
+	transform:translate(-50%,-50%);
+	p{
+		width:100%;
+		height:33px;
+		background:#d51b51;
+		line-height: 33px;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+ .content{
+	 width:746px;
+	 height:380px;
+	 margin:0 auto;
+	 
+	 
+	  .reg{
+	  	width:343px;
+	  	height: 40px;
+	  	margin-bottom: 30px;
+	      float:left;
+	  	span{   
+	  		    width: 76px;
+	  			height: 40px;
+	  			text-align: center;
+	  			vertical-align: middle;
+	  			margin-right:10px;
+				font-size: 14px;
+	  			
+	  			
+	  		}
+	  		input{
+	  				width:236px;
+	  				height: 28px;
+	  				
+	  				// padding-left: 87px;
+	  				padding: 5px 9px;
+	  				border:1px solid #B3B3B3;
+	  			}
+	  			.infor{
+	  				width:149px;
+	  			}
+	  			.yzm{
+	  					display: inline-block;
+	  					width:78px;
+						height:40px;
+	  					vertical-align: middle;
+	  					// margin-right:3px;
+	  					height:44px;
+	  					font-size: 30px;
+	  					font-weight: bold;
+	  				}
+	  			.huan{
+	  			
+	  						padding-top:10px ;
+	  						display: inline-block;
+							margin:0;
+	  						
+	  						a{
+	  							display:block;
+	  							vertical-align: middle;
+	  							
+	  							
+	  							color: black;
+	  						}
+	  					}
+	  				.shuyzm{
+	  						width:88px;
+	  						height:28px;
+	  						}
+	  				.infor{
+	  					width:149px;
+	  					height:28px;
+	  				}
+	  				.send{
+	  					width:38px;
+	  					height:40px;
+	  					padding:0 20px;
+	  					background: black;
+	  					color: white;
+	  					font-size: 14px;
+	  					margin-left:9;
+	  					border:none;
+	  				}
+	  				#regBtn{
+	  					width:266px;
+	  					height:42px;
+	  					background: black;
+	  					color: white;
+	  					font-size: 14px;
+	  					
+	  				}
+	  						
+	  }
+	  .reg1{
+	  	padding-right: 30px;
+	  }
+	  .reg2{
+	  	padding-left: 30px;
+	  }
+	  .reg3{
+	  clear: both;
+	  }
+	  
+ }
 }
