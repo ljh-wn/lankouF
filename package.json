@@ -1,0 +1,26 @@
+{
+  "name": "lankou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljh-wn/lankou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ljh-wn/lankou/issues"
+  },
+  "homepage": "https://github.com/ljh-wn/lankou#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-ruby-sass": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {}
+}
