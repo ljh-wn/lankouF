@@ -3,43 +3,221 @@
 <head>
 	<meta charset="UTF-8">
 	<title>注册页面</title>
-<link rel="stylesheet" type="text/css" href="css/registerSass.css"/>
+	<link rel="stylesheet" href="css/iconfont.css">
+	<link rel="stylesheet" href="css/registerSass.css">
 </head>
 <body>
 	<div class="box">
-		<p>官网会员权益，购正装获积分，畅想明星兑礼。</p>
-		      <div class="content">
-				  <div class="reg reg1">
-				  	<span>手机号*</span><input type="text" placeholder="手机号">
+		<p class="p1">官网会员权益，购正装获积分，畅想明星兑礼。</p>
+		<div class="content" id="tog1">
+			<div class="bottom" >
+				<div class="reg reg1">
+				  	<i>手机号*</i><input type="text" placeholder="手机号"  class="clearA phone" id="phonenum" >
+					<span>请输入有效的手机号</span>
+					<span class="secSpan">请输入有效的手机号码</span>
 				  </div>
 				  <div class="reg reg2">
-				  	<span> 验证码*</span><input type="text" placeholder="输入验证码" class="shuyzm">
-				  	<i class="yzm">4462</i> <span class="huan">看不清？<br><a href="#">换一张</a></span>
+				  	<i> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm clearA">
+				  	<i class="yzm" id="firy">4462</i> <span class="huan">看不清？<br><a>换一张</a></span>
 				  </div>
 				  <div class="reg reg1">
-				  	<span>密码*</span><input type="text" placeholder="请填写密码，至少8个字符"> 
+				  	<i>密码*</i>
+					<input type="text" placeholder="请填写密码，至少8个字符" class="clearA" id="userpass"> 
+					<span>请输入您的密码</span>
+					<span class="secSpan">密码不正确</span>
 				  </div>
 				  <div class="reg reg2">
-				  	<span>短信验证码*</span><input type="text" placeholder="短信验证码" class="infor"><input type="button value
+				  	<i>短信验证码*</i><input type="text" placeholder="短信验证码" class="infor clearA" id="information">
+					<span>请输入短信验证码</span>
+					<span class="secSpan">请输入正确的验证码</span>
+					<input type="button value
 				  	立即注册" class="send" value="发送">
 				  </div>
 				  <div class="reg reg1" >
-				  	<span>确认密码*</span><input type="text" placeholder="请再次输入您的密码"><br>
-				  	
+				  	<i>确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA" id="reconfirm">
+				  	<span>请输入确认密码</span>
+					<span class="secSpan">最小长度8位，包含大小写字母和数字（或符号）</span>
+					<span >两次密码不一致</span>
 				  </div><br>
-				  <div  class="reg reg3">
-				      <input type="button" value="立即注册" id="regBtn">
-				  	
+				  <div class=" reg baocun">
+					    <em id="eem"><span class="iconfont icon-duihao2"></span></em>
+						<b>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；
+						我已阅读并确认被给予充分机会理解该使用条款和隐私政策的内容。</b>
 				  </div>
-				  
-			  </div>
-		       
+				 <div  class="reg reg3">
+				     <input type="button" value="立即注册" id="regBtn">
+				 </div>
+				
+			</div>
+				 <p class="regg regem">邮箱注册></p>
+			</div>
+		
+		<div class="content" id="tog2" >
+				<div class="bottom">
+							<div class="reg reg1">
+								<i>邮箱*</i><input type="text" placeholder="邮箱" class="clearA">
+								<span>请输入有效邮箱</span>
+							 </div>
+							 <div class="reg reg2">
+							 	<i>手机号*</i><input type="text" placeholder="手机号" class="clearA">
+								<span>请输入有效手机号</span>
+							  </div>
+							  <div class="reg reg1">
+							  	  <i>密码*</i><input type="text" placeholder="请填写密码，至少8个字符" class="clearA"> 
+								  <span>请输入您的密码</span>
+							  </div>
+							 <div class="reg reg2">
+								<i> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm">
+								<i class="yzm" id="secf">4462</i><span class="huan">看不清？<br><a >换一张</a></span>
+							 </div>
+							 <div class="reg reg1" >
+							 	<i>确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA">
+								<span>请输入确认密码</span>
+							 															
+							 </div><br>
+							 <div class="reg reg2">
+								<i>短信验证码*</i>
+								<input type="text" placeholder="短信验证码" class="infor clearA">
+								<span>请输入短信验证码</span>
+								<input type="button" class="send send1" value="发送">
+							 </div>
+							 
+							 <div class=" reg baocun">
+								<em id="eem2"><span class="iconfont icon-duihao2"></span></em>
+								<b>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；
+								我已阅读并确认被给予充分机会理解该使用条款和隐私政策的内容。</b>
+							 </div>
+							<div  class="reg reg3">
+							   <input type="button" value="立即注册" id="regBtn">
+							</div>
+														
+						</div>	  
+				<p class="regg regnum">手机号注册></p>			  
+		</div>
 				
 				
-			
-				
-
+		
+		  
 		
 	</div>
 </body>
 </html>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/random.js"></script>
+<script>
+	// 邮箱和手机号注册切换
+	let count=1;
+$("#eem").click(function(){
+	count++;
+	
+	if(count%2==0){
+		$("#eem").children(0).css("display","block");
+	}else{
+		$("#eem").children(0).css("display","none");
+	}
+});
+	let count1=1;
+$("#eem2").click(function(){
+	count1++;
+	
+	if(count1%2==0){
+		$("#eem2").children(0).css("display","block");
+	}else{
+		$("#eem2").children(0).css("display","none");
+	}
+});
+
+$(".regem").click(function(){
+	 $('#tog2').show();
+	 $('#tog1').hide();
+	
+}) 
+$(".regnum").click(function(){
+	 $('#tog2').hide();
+	 $('#tog1').show();
+	
+})  
+// 随机验证码
+my$(".huan")[0].onclick=function(){
+	let num=getMa();
+	my$("#firy").innerHTML=num;
+	
+}
+my$(".huan")[1].onclick=function(){
+	let num=getMa();
+	my$("#secf").innerHTML=num;
+	
+}
+ 
+ // 判断输入框是否输入东西
+  let inputs=my$(".clearA");
+  let secSpan=$(".secSpan")
+  let placeVal;
+ for(let j=0;j<inputs.length;j++){
+	 inputs[j].nextElementSibling.style.display="none";
+	 secSpan.eq(j).css("display","none");
+	  
+	 my$("#reconfirm").nextElementSibling.nextElementSibling.nextElementSibling.style.display="none";
+	 
+	 inputs[j].onfocus=function(){
+		 
+		 console.log(count);
+		placeVal=$(this).attr("placeholder");
+	    $(this).attr("placeholder","");
+	   
+		
+	 } 
+	 let count=1;
+	 inputs[j].onblur=function(){
+		 count++;
+		 let str=this.value;
+		 let reg=/^1\d{10}$/;
+		  $(this).attr("placeholder",placeVal);
+		 if(count%2==0){
+			inputs[j].nextElementSibling.style.display="block";
+			inputs[j].nextElementSibling.style.color="#D51B51";
+			inputs[j].nextElementSibling.style.fontSize="12px";
+			inputs[j].nextElementSibling.style.textAlign="center";
+			this.style.border="1px solid #D51B51";
+			
+			// if(reg.test(str)==true){
+			// 	inputs[j].nextElementSibling.style.display="none"; 
+			// 	secSpan.eq(j).css("display","none");	  
+			// }else{
+			// 	inputs[j].nextElementSibling.style.display="none"; 
+			// 	secSpan.eq(j).css("display","block"); 
+			// }
+			// 	 	
+		}
+		
+	 }
+	 
+ }
+ // 通过正则判断输入框中输入的内容是否符合要求
+//  $(".phonenum").onblur=function(){
+// 	
+// 	 if(reg.test(str)==true){
+// 		  this.nextElementSibling.style.display="none";
+// 	      this.nextElementSibling.nextElementSibling.style.display="none";
+// 	 }else{
+// 	      this.nextElementSibling.nextElementSibling.style.display="block";
+// 	 }
+//  }
+// 
+	 
+
+
+
+ function my$(str){
+ 	if(str.charAt(0)=="#"){
+ 		return document.getElementById(str.substring(1));
+ 	}else if(str.charAt(0)=="."){
+ 		return document.getElementsByClassName(str.substring(1));
+ 	}else{
+ 		return document.getElementsByTagName(str);
+ 	}
+ }	
+     
+    
+
+</script>
