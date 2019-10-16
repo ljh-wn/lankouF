@@ -17,7 +17,7 @@
 					<span class="secSpan">请输入有效的手机号码</span>
 				  </div>
 				  <div class="reg reg2">
-				  	<i> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm clearA">
+				  	<i> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm">
 				  	<i class="yzm" id="firy">4462</i> <span class="huan">看不清？<br><a>换一张</a></span>
 				  </div>
 				  <div class="reg reg1">
@@ -25,19 +25,20 @@
 					<input type="text" placeholder="请填写密码，至少8个字符" class="clearA" id="userpass"> 
 					<span>请输入您的密码</span>
 					<span class="secSpan">密码不正确</span>
+					<span class="secSpan">最小长度8位，包含大小写字母和数字（或符号）</span>
 				  </div>
 				  <div class="reg reg2">
 				  	<i>短信验证码*</i><input type="text" placeholder="短信验证码" class="infor clearA" id="information">
 					<span>请输入短信验证码</span>
-					<span class="secSpan">请输入正确的验证码</span>
+					<span class="secSpan" >请输入正确的验证码</span>
 					<input type="button value
 				  	立即注册" class="send" value="发送">
 				  </div>
 				  <div class="reg reg1" >
-				  	<i>确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA" id="reconfirm">
+				  	<i>确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA" >
 				  	<span>请输入确认密码</span>
-					<span class="secSpan">最小长度8位，包含大小写字母和数字（或符号）</span>
-					<span >两次密码不一致</span>
+					
+					<span class="secSpan">两次密码不一致</span>
 				  </div><br>
 				  <div class=" reg baocun">
 					    <em id="eem"><span class="iconfont icon-duihao2"></span></em>
@@ -57,14 +58,19 @@
 							<div class="reg reg1">
 								<i>邮箱*</i><input type="text" placeholder="邮箱" class="clearA">
 								<span>请输入有效邮箱</span>
+								<span class="secSpan">请输入有效的邮箱</span>
 							 </div>
 							 <div class="reg reg2">
 							 	<i>手机号*</i><input type="text" placeholder="手机号" class="clearA">
 								<span>请输入有效手机号</span>
+								
+								<span class="secSpan">请输入有效的手机号码</span>
 							  </div>
 							  <div class="reg reg1">
 							  	  <i>密码*</i><input type="text" placeholder="请填写密码，至少8个字符" class="clearA"> 
 								  <span>请输入您的密码</span>
+								  <span class="secSpan">密码不正确</span>
+								  <span class="secSpan">最小长度8位，包含大小写字母和数字（或符号）</span>
 							  </div>
 							 <div class="reg reg2">
 								<i> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm">
@@ -72,16 +78,20 @@
 							 </div>
 							 <div class="reg reg1" >
 							 	<i>确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA">
-								<span>请输入确认密码</span>
+							 	<span>请输入确认密码</span>
+								
+								<span class="secSpan" style="display:none;">两次密码不一致</span>
 							 															
-							 </div><br>
+							 </div>
 							 <div class="reg reg2">
 								<i>短信验证码*</i>
 								<input type="text" placeholder="短信验证码" class="infor clearA">
 								<span>请输入短信验证码</span>
+					             <span class="secSpan" style="display:none;" >请输入正确的验证码</span>
+								
 								<input type="button" class="send send1" value="发送">
 							 </div>
-							 
+							
 							 <div class=" reg baocun">
 								<em id="eem2"><span class="iconfont icon-duihao2"></span></em>
 								<b>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；
@@ -157,16 +167,12 @@ my$(".huan")[1].onclick=function(){
 	 inputs[j].nextElementSibling.style.display="none";
 	 secSpan.eq(j).css("display","none");
 	  
-	 my$("#reconfirm").nextElementSibling.nextElementSibling.nextElementSibling.style.display="none";
+	 
 	 
 	 inputs[j].onfocus=function(){
-		 
-		 console.log(count);
 		placeVal=$(this).attr("placeholder");
 	    $(this).attr("placeholder","");
-	   
-		
-	 } 
+} 
 	 let count=1;
 	 inputs[j].onblur=function(){
 		 count++;
@@ -174,29 +180,378 @@ my$(".huan")[1].onclick=function(){
 		  $(this).attr("placeholder",placeVal);
 		 if(count%2==0){
 			inputs[j].nextElementSibling.style.display="block";
+			secSpan.eq(j).css("display","none");
+			
 			inputs[j].nextElementSibling.style.color="#D51B51";
 			inputs[j].nextElementSibling.style.fontSize="12px";
 			inputs[j].nextElementSibling.style.textAlign="center";
 			this.style.border="1px solid #D51B51";
 			
 		}
-		if(count>1 & inputs[0]){
+		if(count>0 & inputs[j]==inputs[0] || count>0 & inputs[j]==inputs[5]){
 			let str=this.value;
 			let reg=/^1\d{10}$/;
-			
-			if(reg.test(str)==true){
-				inputs[j].nextElementSibling.style.display="none"; 
-				secSpan.eq(j).css("display","none");	  
+			if(j==5){
+				if(reg.test(str)==true){
+					inputs[j].nextElementSibling.style.display="none"; 
+					secSpan.eq(j+1).css("display","none");
+					this.style.border="1px solid #999999";
+				}else if(str==""){
+					inputs[j].nextElementSibling.style.display="block";
+					secSpan.eq(j+1).css("display","none"); 
+				}else{
+					inputs[j].nextElementSibling.style.display="none";
+					
+					secSpan.eq(j+1).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				}
+					
 			}else{
-				inputs[j].nextElementSibling.style.display="none"; 
-				secSpan.eq(j).css("display","block"); 
+				if(reg.test(str)==true){
+					inputs[j].nextElementSibling.style.display="none"; 
+					secSpan.eq(j).css("display","none");
+					this.style.border="1px solid #999999";
+				}else if(str==""){
+					inputs[j].nextElementSibling.style.display="block";
+					secSpan.eq(j).css("display","none"); 
+				}else{
+					inputs[j].nextElementSibling.style.display="none";
+					
+					secSpan.eq(j).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				}
+					
 			}
+			
+			// 确认密码
+		}else if(count>0 & inputs[j]==inputs[1] || count>0 & inputs[j]==inputs[6]){
+			let pass=this.value;
+			inputs[j].nextElementSibling.style.display="none";
+			secSpan.eq(j+1).css("display","none"); 
+			secSpan.eq(j+2).css("display","none"); 
+		    if(j==6){
+			if(pass==""){
+				inputs[j].nextElementSibling.style.display="block";
+				secSpan.eq(j+1).css("display","none"); 
+				secSpan.eq(j+2).css("display","none"); 
+				
+				 
+				
+				}else if(pass.length<8){
+				  inputs[j].nextElementSibling.style.display="none";
+				  secSpan.eq(j+1).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"});
+				secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				 return;
+			 }
+							
+				 //2)、必须含有字母
+				 var hasLetter = false;
+				 for(var i=0;i<pass.length;i++){
+				     var code = pass.charCodeAt(i);
+					if(pass==""){
+						inputs[j].nextElementSibling.style.display="block";
+						secSpan.eq(j+1).css("display","none"); 
+						secSpan.eq(j+2).css("display","none");
+						
+					}else if((code>=65 && code<=90) || (code>=97 && code<=122)){//有没有字母
+					 hasLetter = true;
+					 break;
+				 }
+}
+				if(pass==""){
+					inputs[j].nextElementSibling.style.display="block";
+					secSpan.eq(j+1).css("display","none"); 
+					secSpan.eq(j+2).css("display","none"); 
+					
+				}else if(hasLetter==false){//!hasLetter
+				     inputs[j].nextElementSibling.style.display="none";
+									
+				     secSpan.eq(j+1).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+					secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				     return;
+				 }
+				 
+				 //3)、必须含有数字
+				 var hasNum = false;
+				 for(var i=0;i<pass.length;i++){
+				     var code = pass.charCodeAt(i);
+					if(pass==""){
+						inputs[j].nextElementSibling.style.display="block";
+						secSpan.eq(j+1).css("display","none"); 
+						secSpan.eq(j+2).css("display","none"); 
+						
+					}
+				    else if(code>=48 && code<=57){
+				         hasNum = true;
+				         break;
+				     }
+		         }
+						if(pass==""){
+							inputs[j].nextElementSibling.style.display="block";
+							secSpan.eq(j+1).css("display","none"); 
+							secSpan.eq(j+2).css("display","none"); 
+							
+						}
+				 else if(hasNum==false){//!hasNum
+				    inputs[j].nextElementSibling.style.display="none";
+				    	secSpan.eq(j+1).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+						secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				     return;
+				 }
+				 
+				 //4)、必须含有特殊字符
+				 var arr=["$","%","!","#","*","@"];
+				 var hasSpec = false;
+				 for(var i=0;i<pass.length;i++){
+				     var char = pass.charAt(i);//$
+						if(pass==""){
+							inputs[j].nextElementSibling.style.display="block";
+							secSpan.eq(j+1).css("display","none"); 
+							secSpan.eq(j+2).css("display","none"); 
+							
+						}
+				    else if(arr.indexOf(char)>-1){
+				         hasSpec = true;
+				         break;
+				     }
+				 }
+				 if(pass==""){
+				 	inputs[j].nextElementSibling.style.display="block";
+				 	secSpan.eq(j+1).css("display","none"); 
+				 	secSpan.eq(j+2).css("display","none"); 
 				 	
+				 }else if(hasSpec==false){//!hasSpec
+				     inputs[j].nextElementSibling.style.display="none";
+				     secSpan.eq(j+1).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+					secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+					this.style.border="1px solid #999999";
+								
+				     return;
+				 }
+							
+				//3、输出
+				if(pass==""){
+					inputs[j].nextElementSibling.style.display="block";
+					secSpan.eq(j+1).css("display","none"); 
+					secSpan.eq(j+2).css("display","none"); 
+					
+				}else{
+				   inputs[j].nextElementSibling.style.display="none";
+				   secSpan.eq(j+1).css("display","none");
+				   secSpan.eq(j+2).css("display","none");
+				   this.style.border="1px solid #999999";
+				}
+			}else{
+				if(pass==""){
+							inputs[j].nextElementSibling.style.display="block";
+							secSpan.eq(j+1).css("display","none"); 
+							secSpan.eq(j+2).css("display","none"); 
+							
+				}else if(pass.length<8){
+				    inputs[j].nextElementSibling.style.display="none";
+					secSpan.eq(j).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"});
+				    secSpan.eq(j+1).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				     return;
+				 }
+							
+				 //2)、必须含有字母
+				 var hasLetter = false;
+				 for(var i=0;i<pass.length;i++){
+				     var code = pass.charCodeAt(i);
+						if(pass==""){
+							inputs[j].nextElementSibling.style.display="block";
+							secSpan.eq(j).css("display","none"); 
+							secSpan.eq(j+1).css("display","none"); 
+							
+						}else if((code>=65 && code<=90) || (code>=97 && code<=122)){//有没有字母
+				         hasLetter = true;
+				         break;
+				     }
+				 }
+					if(pass==""){
+						inputs[j].nextElementSibling.style.display="block";
+						secSpan.eq(j).css("display","none"); 
+						secSpan.eq(j+1).css("display","none"); 
+						
+					}
+				 else if(hasLetter==false){//!hasLetter
+				     inputs[j].nextElementSibling.style.display="none";
+									
+				     secSpan.eq(j).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+					secSpan.eq(j+1).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				     return;
+				 }
+				 
+				 //3)、必须含有数字
+				 var hasNum = false;
+				 for(var i=0;i<pass.length;i++){
+				     var code = pass.charCodeAt(i);
+									if(pass==""){
+										inputs[j].nextElementSibling.style.display="block";
+										secSpan.eq(j).css("display","none"); 
+										secSpan.eq(j+1).css("display","none"); 
+										
+									}
+				    else if(code>=48 && code<=57){
+				         hasNum = true;
+				         break;
+				     }
+				 }
+								if(pass==""){
+									inputs[j].nextElementSibling.style.display="block";
+									secSpan.eq(j).css("display","none"); 
+									secSpan.eq(j+1).css("display","none"); 
+									
+								}
+				 else if(hasNum==false){//!hasNum
+				    inputs[j].nextElementSibling.style.display="none";
+				    	secSpan.eq(j).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+						secSpan.eq(j+1).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+				     return;
+				 }
+				 
+				 //4)、必须含有特殊字符
+				 var arr=["$","%","!","#","*","@"];
+				 var hasSpec = false;
+				 for(var i=0;i<pass.length;i++){
+				     var char = pass.charAt(i);//$
+							if(pass==""){
+								inputs[j].nextElementSibling.style.display="block";
+								secSpan.eq(j).css("display","none"); 
+								secSpan.eq(j+1).css("display","none"); 
+								
+							}
+				    else if(arr.indexOf(char)>-1){
+				         hasSpec = true;
+				         break;
+				     }
+				 }
+				 if(pass==""){
+				 	inputs[j].nextElementSibling.style.display="block";
+				 	secSpan.eq(j).css("display","none"); 
+				 	secSpan.eq(j+1).css("display","none"); 
+				 	
+				 }else if(hasSpec==false){//!hasSpec
+				     inputs[j].nextElementSibling.style.display="none";
+				     secSpan.eq(j).css({display:"none",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+					secSpan.eq(j+1).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+									this.style.border="1px solid #999999";
+								
+				     return;
+				 }
+							
+				//3、输出
+				if(pass==""){
+					inputs[j].nextElementSibling.style.display="block";
+					secSpan.eq(j).css("display","none"); 
+					secSpan.eq(j+1).css("display","none"); 
+					
+				}else{
+				   inputs[j].nextElementSibling.style.display="none";
+				   secSpan.eq(j).css("display","none");
+				   secSpan.eq(j+1).css("display","none");
+				   this.style.border="1px solid #999999";
+				}
+			}
+			  
+			    
+			// 短信验证码
+			}else if(count>0 & inputs[j]==inputs[2] || count>0 & inputs[j]==inputs[8]){
+				let str=this.value;
+				let reg=/^\d{6}$/;
+				inputs[j].nextElementSibling.style.display="none";
+				secSpan.eq(j+2).css("display","none");
+				if(j==8){
+						if(str==''){
+							inputs[j].nextElementSibling.style.display="block"; 
+							// secSpan.eq(j+2).css({display:"none",}); 
+							secSpan.eq(j+2).css("display","none"); 
+							
+						}
+						else if(reg.test(str)==true){
+							inputs[j].nextElementSibling.style.display="none"; 
+							secSpan.eq(j+2).css("display","none");	
+							this.style.border="1px solid #999999";
+						}else{
+							inputs[j].nextElementSibling.style.display="none";
+							secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+								}	
+					}else{
+							if(str==''){
+								inputs[j].nextElementSibling.style.display="block"; 
+								secSpan.eq(j+1).css({display:"none",}); 
+							}
+							else if(reg.test(str)==true){
+								inputs[j].nextElementSibling.style.display="none"; 
+								secSpan.eq(j+1).css("display","none");	
+								this.style.border="1px solid #999999";
+							}else{
+								inputs[j].nextElementSibling.style.display="none";
+								secSpan.eq(j+1).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"}); 
+							}
+					}
+				// 确认密码
+			}else if(count>0 & inputs[j]==inputs[3]|| count>0 & inputs[j]==inputs[7] ){
+				let str=inputs[1].value;
+				let str2=inputs[6].value;
+				inputs[j].nextElementSibling.style.display="none";
+				secSpan.eq(j+2).css("display","none"); 
+				if(j==7){
+					if(inputs[j].value==''){
+						inputs[j].nextElementSibling.style.display="block"; 
+						secSpan.eq(j+2).css("display","none"); 
+						// secSpan.eq(j+2).css("display","none"); 
+					}
+					else if(inputs[j].value==str2){
+						inputs[j].nextElementSibling.style.display="none"; 
+						secSpan.eq(j+2).css("display","none");
+						// secSpan.eq(j+2).css("display","none");
+						this.style.border="1px solid #999999";
+					}else if(inputs[j].value!=str2){
+						// secSpan.eq(j+2).css("display","none"); 
+						inputs[j].nextElementSibling.style.display="none"; 
+						secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"});
+					}
+				}else{
+					if(inputs[j].value==''){
+						inputs[j].nextElementSibling.style.display="block"; 
+						secSpan.eq(j+1).css("display","none"); 
+						// secSpan.eq(j+2).css("display","none"); 
+					}
+					else if(inputs[j].value==str){
+						inputs[j].nextElementSibling.style.display="none"; 
+						secSpan.eq(j+1).css("display","none");
+						// secSpan.eq(j+2).css("display","none");
+						this.style.border="1px solid #999999";
+					}else if(inputs[j].value!=str){
+						secSpan.eq(j+1).css("display","none"); 
+						inputs[j+1].nextElementSibling.style.display="block"; 
+						// secSpan.eq(j+2).css({display:"block",color:"#D51B51",textAlign:"center",fontSize:"12px"});
+					}
+				}
+				 
+				
+			}else if(count>0 & inputs[j]==inputs[4]){
+				
+					let str=this.value;
+					let  reg = /^\w{3,16}@\w{2,16}\.(com|net|com.cn|cn)$/;
+					
+					if(reg.test(str)==true){
+						inputs[j].nextElementSibling.style.display="none"; 
+						secSpan.eq(j+1).css("display","none");
+						this.style.border="1px solid #999999";
+					}else if(str==""){
+						inputs[j].nextElementSibling.style.display="block";
+						secSpan.eq(j+1).css("display","none"); 
+					}else{
+						inputs[j].nextElementSibling.style.display="none";
+						
+						secSpan.eq(j+1).css("display","block"); 
+					}
+	            }
+			
+			
+			
 		}
-		
-	 }
-	 
- }
+	}
  // 通过正则判断输入框中输入的内容是否符合要求
 //  $(".phonenum").onblur=function(){
 // 	
