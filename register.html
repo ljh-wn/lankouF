@@ -12,9 +12,10 @@
 		<div class="content" id="tog1">
 			<div class="bottom" >
 				<div class="reg reg1">
-				  	<i>手机号*</i><input type="text" placeholder="手机号"  class="clearA phone" id="phonenum" >
+				  	<i>手机号*</i><input type="text" placeholder="手机号"  class="clearA phone" id="phonenum"  >
 					<span>请输入有效的手机号</span>
 					<span class="secSpan">请输入有效的手机号码</span>
+					<span></span>
 				  </div>
 				  <div class="reg reg2">
 				  	<i> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm">
@@ -46,9 +47,10 @@
 						我已阅读并确认被给予充分机会理解该使用条款和隐私政策的内容。</b>
 				  </div>
 				 <div  class="reg reg3">
-				     <input type="button" value="立即注册" id="regBtn">
+				     <input type="button" value="立即注册" class="regBtn" id="regBtnp">
 				 </div>
-				
+				<div id="messageBox">
+				</div>
 			</div>
 				 <p class="regg regem">邮箱注册></p>
 			</div>
@@ -56,9 +58,10 @@
 		<div class="content" id="tog2" >
 				<div class="bottom">
 							<div class="reg reg1">
-								<i>邮箱*</i><input type="text" placeholder="邮箱" class="clearA">
+								<i>邮箱*</i><input type="text" placeholder="邮箱" class="clearA"  id="useremail">
 								<span>请输入有效邮箱</span>
 								<span class="secSpan">请输入有效的邮箱</span>
+								<span></span>
 							 </div>
 							 <div class="reg reg2">
 							 	<i>手机号*</i><input type="text" placeholder="手机号" class="clearA">
@@ -98,9 +101,10 @@
 								我已阅读并确认被给予充分机会理解该使用条款和隐私政策的内容。</b>
 							 </div>
 							<div  class="reg reg3">
-							   <input type="button" value="立即注册" id="regBtn">
+							   <input type="button" value="立即注册"  class="regBtn" id="regBtne">
 							</div>
-														
+							<div id="messageBox">
+							</div>							
 						</div>	  
 				<p class="regg regnum">手机号注册></p>			  
 		</div>
@@ -114,6 +118,7 @@
 </html>
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/random.js"></script>
+<script src="js/cookieTools.js"></script>
 <script>
 	// 邮箱和手机号注册切换
 	let count=1;
@@ -552,19 +557,37 @@ my$(".huan")[1].onclick=function(){
 			
 		}
 	}
- // 通过正则判断输入框中输入的内容是否符合要求
-//  $(".phonenum").onblur=function(){
-// 	
-// 	 if(reg.test(str)==true){
-// 		  this.nextElementSibling.style.display="none";
-// 	      this.nextElementSibling.nextElementSibling.style.display="none";
-// 	 }else{
-// 	      this.nextElementSibling.nextElementSibling.style.display="block";
-// 	 }
-//  }
-// 
-	 
+  
+// 验证用户名在数据库中是否存在
+my$("#regBtnp").onclick = function(){
+    //1、
+    let xhr = new XMLHttpRequest();
 
+    xhr.open("post","regSave.php",true);
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState==4 && xhr.status==200){
+            if(xhr.responseText=="-1"){
+                my$("#messageBox").style.color ="red";
+                my$("#messageBox").innerHTML ="该号码被人使用";
+            }else if(xhr.responseText=="0"){
+                my$("#messageBox").style.color ="red";
+                my$("#messageBox").innerHTML ="注册失败";
+            }else if(xhr.responseText=="1"){
+				 addCookie("phonenum",my$("#phonenum").value,7);
+				 location.href="index.html";
+				 regSuccess();
+               
+            }
+        }
+    }
+    //post方式：设置请求头
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    //post方式：把传给服务器端数据（键值对）放在send函数的参数里。
+    let sendstr = `phonenum=${my$("#phonenum").value}&userpass=${my$("#userpass").value}`;
+    xhr.send(sendstr);
+
+}
 
 
  function my$(str){

@@ -275,8 +275,8 @@
 						<p>您可能还喜欢</p>
 					</div>
 				</div>
-				<a href="#" class="tri fir show1">
-					<span class="iconfont icon-denglu7"></span>
+				<a href="#" class="tri fir show1" id="logSuca" >
+					<span class="iconfont icon-denglu7" ></span>
 				</a>
 				<div class="loginBox nav-div" id="logBox">
 					<div class="top">
@@ -288,10 +288,12 @@
 							<li id="yanzheng1"><a href="#">验证码登录</a></li>
 							<li id="yanzheng2"><a href="#" >密码登录</a></li>
                             <div class="form" id="delu1">
-									<input type="text" placeholder="手机号"><br>
-									<input type="text" placeholder="输入验证码" class="ma"><span><em>4118</em></span><p class="sec"><a href="#">看不清？<br>换一张</a></p><br>
-									<input type="text" placeholder="短信验证码" id=infor> <input type="submit" class="information" ><br>
-									<input type="button" id="login" value="登录"><br>
+									<input type="text" placeholder="手机号" id="phonenum"><br>
+									<input type="text" placeholder="输入验证码" class="ma">
+									<span><em>4118</em></span><p class="sec"><a href="#">看不清？<br>换一张</a></p><br>
+									<input type="text" placeholder="短信验证码" id=infor>
+									<input type="submit" class="information" ><br>
+									<input type="button" id="login1" value="登录" class="logonB"><br>
 									<p class="mid">使用第三方账号登录</p>
 									<ul class="ulss">
 										<li><a href="#"></a></li>
@@ -306,9 +308,9 @@
 							</div>
 							<div class="form form1" id="delu2">
 									<input type="text" placeholder="手机号/邮箱"><br>
-									<input type="password" placeholder="请填写密码，至少8个字符" ><br>
+									<input type="password" placeholder="请填写密码，至少8个字符" id="userpass"><br>
 									
-									<input type="button" id="login" value="登录"><br>
+									<input type="button" id="login2" value="登录" class="logonB"><br>
 									<p class="mid">使用第三方账号登录</p>
 									<ul class="ulss">
 										<li><a href="#"></a></li>
@@ -326,11 +328,27 @@
 						
 					</div>
 				</div>
+				<div id="logSuccess">
+					
+					<span id="welcome">欢迎：</span>
+					<a id="exit">退出</a>
+				</div>
 			</div>
 		</div>
     </div>	
 </div>
-	
+
+<!-- 注册成功后的页面	 -->
+<div id="successBox">
+	<div class="inforBox">
+		<p>注册成功！<br>欢迎加入兰蔻家族</p>
+		<span>*新客首次购买满520元，即享星品体验礼</span>
+		<ul>
+			<li><a id="logsuc">开始购物</a></li>
+			<li><a >完善个人信息</a></li>
+		</ul>
+	</div>
+</div>
 <!-- banner -->
 <div id="banner">
 </div>
@@ -864,13 +882,15 @@
 
 
 <script src="js/banner.js"></script>
-
+<script src="js/move1908.js"></script>
+<script src="js/cookieTools.js"></script>
+<script src="js/ajaxTools.js"></script>
 <script>
 $("#returnTop").click(function(){
   $("html,body").animate({'scrollTop':0},100)
  })
 window.onscroll = function(){
-		let server=public("#server");
+		let server=my$("#server");
 		var _scroll = document.body.scrollTop || document.documentElement.scrollTop;
 		// document.title = _scroll;
 		if(_scroll<=620){
@@ -879,8 +899,8 @@ window.onscroll = function(){
 		}else{
 			server.style.display = "block";
 		}
-		let logo=public(".logo");
-		let navLogo=public(".navLogo");
+		let logo=my$(".logo");
+		let navLogo=my$(".navLogo");
 		var scroll=document.body.scrollTop || document.documentElement.scrollTop;
 		if(scroll>=75){
 			logo[0].style.display="none";
@@ -897,9 +917,9 @@ window.onscroll = function(){
 
 let myTimer=-1;
 let index=0;
-let imgs=public("#lunbo").children;
+let imgs=my$("#lunbo").children;
 console.log(imgs);
-let lis=public("#doudouBox").children;
+let lis=my$("#doudouBox").children;
 function move1(){
 	
 	myTimer=setInterval(function(){
@@ -947,7 +967,7 @@ function stop1(){
 }
 
  window.onload=function(){
-   	  new Banner(public("#banner"),
+   	  new Banner(my$("#banner"),
       {
       imgs:["img/19.jpg","img/a.jpg","img/k.jpg","img/e.jpg","img/v.jpg"],
       as:["http://www.baidu.com","https://www.lancome.com.cn","https://www.google.com","https://www.iconfont.cn","https://ibaotu.com/"],
@@ -958,42 +978,97 @@ function stop1(){
         douColor:"#999999",
         douHighColor:"#333333"
     });
-       
+  
+	 
+regSuccess();  
+$("#logsuc").click(function(){
+	logSuccess();
+	// location.href="index.html";
+	
+});
+$("#exit").click(function(){
+	exitLog();
+});
 
+$("#login1").click(function(){
+    let sendstr = `phonenum=${my$("#phonenum").value}`;
+   ajax1908Promise({
+        "method":"post",
+        "url":"login.php",
+        "datas":sendstr,
+    }).then(function(str){
+        if(str=="1"){
+            addCookie("phonenum",my$("#phonenum").value,7);
+            location.href="index.html";
+        }else{
+            $("#messageBox").innerHTML = "手机号不正确";
+        }
+    },function(){
+        $("#messageBox").innerHTML = "亲，服务器开小差了……";
+    });
+
+})
+logSuccess();
+$("#login2").click(function(){
+    let sendstr = `phonenum=${my$("#phonenum").value}&userpass=${my$("#userpass").value}`;
+   ajax1908Promise({
+        "method":"post",
+        "url":"login.php",
+        "datas":sendstr,
+    }).then(function(str){
+        if(str=="1"){
+            addCookie("phonenum",my$("#phonenum").value,7);
+            location.href="index.html";
+        }else{
+            $("#messageBox").innerHTML = "手机号不正确";
+        }
+    },function(){
+        $("#messageBox").innerHTML = "亲，服务器开小差了……";
+    });
+	
+})
+
+
+
+
+
+
+
+// 第二个轮播图
 
     move1();
  
 	
-	public("#lunbo").onmouseover=function(){
+	my$("#lunbo").onmouseover=function(){
 		 let evt = event || window.event;
         evt.stopPropagation();
         stop1();
        
       
 	}
-	public("#lunbo").onmouseout=function(){
+	my$("#lunbo").onmouseout=function(){
 		 let evt = event || window.event;
         evt.stopPropagation();
 		move1();
 	}
-	 public("#doudouBox").onmouseout = function(event){
+	 my$("#doudouBox").onmouseout = function(event){
         let evt = event || window.event;
         evt.stopPropagation();
     }
 
-    public("#doudouBox").onmouseover = function(event){
+    my$("#doudouBox").onmouseover = function(event){
         let evt = event || window.event;
         evt.stopPropagation();
     }
     
-	let lis=public("#doudouBox").children;
+	let lis=my$("#doudouBox").children;
 	for(let i=0;i<lis.length;i++){
         lis[i].onclick=function(){
         	goImg1(i);
         }
 	}
 
-// let buy=public(".gbtn");
+// let buy=my$(".gbtn");
 
 // 	for(let g=0;g<buy.length;g++){
 		
@@ -1019,9 +1094,9 @@ function stop1(){
 
 
 
-	let subMeun=public(".ok");
+	let subMeun=my$(".ok");
 
-	let a=public(".show");
+	let a=my$(".show");
 	console.log(a);
 
 	for(let i in subMeun){
@@ -1042,7 +1117,7 @@ for(let j in a){
     }
 }
 // 导航栏右边的
-let show1=public(".show1");
+let show1=my$(".show1");
 for(let i in show1){
    show1[i].onmouseenter=function(){
        show1[i].nextElementSibling.style.display="block";
@@ -1075,23 +1150,23 @@ for(let i in show1){
 
 
 // 登录
-public("#yanzheng1").onmouseover=function(){
-	public("#delu1").style.display="block";
+my$("#yanzheng1").onmouseover=function(){
+	my$("#delu1").style.display="block";
 	this.children[0].style=`
 	 text-decoration: none;
 		color: black;`;
-	public("#delu2").style.display="none";
-	public("#yanzheng2").children[0].style=`
+	my$("#delu2").style.display="none";
+	my$("#yanzheng2").children[0].style=`
 	color: #666666;
 	text-decoration: underline;`;
 }
-public("#yanzheng2").onmouseover=function(){
-	public("#delu1").style.display="none";
+my$("#yanzheng2").onmouseover=function(){
+	my$("#delu1").style.display="none";
 	this.children[0].style=`
 	text-decoration: none;
 		color: black;`;
-	public("#delu2").style.display="block";
-	public("#yanzheng1").children[0].style=`
+	my$("#delu2").style.display="block";
+	my$("#yanzheng1").children[0].style=`
 	color: #666666;
 	text-decoration: underline;`;
 }
@@ -1099,13 +1174,13 @@ public("#yanzheng2").onmouseover=function(){
 
 
 // 微信微博
-public("#weixin").onmouseover=function(){
+my$("#weixin").onmouseover=function(){
 	this.nextElementSibling.style.display="block";
 }
-public("#weixin").onmouseout=function(){
+my$("#weixin").onmouseout=function(){
 	this.nextElementSibling.style.display="none";
 }
-function public(str){
+function my$(str){
 	if(str.charAt(0)=="#"){
 		return document.getElementById(str.substring(1));
 	}else if(str.charAt(0)=="."){
