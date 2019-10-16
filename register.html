@@ -170,8 +170,7 @@ my$(".huan")[1].onclick=function(){
 	 let count=1;
 	 inputs[j].onblur=function(){
 		 count++;
-		 let str=this.value;
-		 let reg=/^1\d{10}$/;
+		
 		  $(this).attr("placeholder",placeVal);
 		 if(count%2==0){
 			inputs[j].nextElementSibling.style.display="block";
@@ -180,14 +179,19 @@ my$(".huan")[1].onclick=function(){
 			inputs[j].nextElementSibling.style.textAlign="center";
 			this.style.border="1px solid #D51B51";
 			
-			// if(reg.test(str)==true){
-			// 	inputs[j].nextElementSibling.style.display="none"; 
-			// 	secSpan.eq(j).css("display","none");	  
-			// }else{
-			// 	inputs[j].nextElementSibling.style.display="none"; 
-			// 	secSpan.eq(j).css("display","block"); 
-			// }
-			// 	 	
+		}
+		if(count>1 & inputs[0]){
+			let str=this.value;
+			let reg=/^1\d{10}$/;
+			
+			if(reg.test(str)==true){
+				inputs[j].nextElementSibling.style.display="none"; 
+				secSpan.eq(j).css("display","none");	  
+			}else{
+				inputs[j].nextElementSibling.style.display="none"; 
+				secSpan.eq(j).css("display","block"); 
+			}
+				 	
 		}
 		
 	 }
