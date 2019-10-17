@@ -2,8 +2,8 @@
      header("Content-type:text/html;charset=utf-8");
     //1、接收前端的数据
 
-    $phonenum = $_POST['phonenum'];
-    $userpass = $_POST['userpass'];
+    $phone = $_POST['phonenum'];
+    $pass = $_POST['pass'];
 
     //2、处理
      //1)、链接数据库(搭桥)
@@ -18,7 +18,7 @@
 
         //3)、执行SQL语句（数据传输）
         //3.1)
-        $sqlstr="select * from clientinfor where phonenum='$phonenum'";//查询该用户名在数据库中有没有。 
+        $sqlstr="select * from clientinfor where phone=' $phone'";//查询该用户名在数据库中有没有。 
         $result = mysql_query($sqlstr,$conn);
         $rows = mysql_num_rows($result);//获得结果的行数
         if($rows>0){
@@ -26,7 +26,7 @@
             mysql_close($conn);
             echo "-1";//用户名被使用
         }else{
-            $sqlstr="insert into clientinfor(phonenum,userpass) values('$phonenum','$userpass')";
+            $sqlstr="insert into clientinfor(phone,pass) values('$phone','$pass')";
             $result = mysql_query( $sqlstr,$conn);
             //4)、关闭数据库
             mysql_close($conn);

@@ -6,7 +6,10 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/iconfont.css">
+	<link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" href="css/registerSass.css">
 	<link rel="stylesheet" href="css/index.css">
+	
 </head>
 <body>
 <!-- header -->
@@ -288,7 +291,7 @@
 							<li id="yanzheng1"><a href="#">验证码登录</a></li>
 							<li id="yanzheng2"><a href="#" >密码登录</a></li>
                             <div class="form" id="delu1">
-									<input type="text" placeholder="手机号" id="phonenum"><br>
+									<input type="text" placeholder="手机号" ><br>
 									<input type="text" placeholder="输入验证码" class="ma">
 									<span><em>4118</em></span><p class="sec"><a href="#">看不清？<br>换一张</a></p><br>
 									<input type="text" placeholder="短信验证码" id=infor>
@@ -302,12 +305,12 @@
 										<li><a href="#"></a></li>
 									</ul>
 									<div class="tip">
-										<a href="#" class="create">创建账户</a>
+										<a class="create" id="createUser1">创建账户</a>
 									    <a href="#" class="create">忘记密码？</a>
 								    </div>
 							</div>
 							<div class="form form1" id="delu2">
-									<input type="text" placeholder="手机号/邮箱"><br>
+									<input type="text" placeholder="手机号/邮箱" id="phonenum"><br>
 									<input type="password" placeholder="请填写密码，至少8个字符" id="userpass"><br>
 									
 									<input type="button" id="login2" value="登录" class="logonB"><br>
@@ -319,7 +322,7 @@
 										<li><a href="#"></a></li>
 									</ul>
 									<div class="tip">
-										<a href="#" class="create">创建账户</a>
+										<a  class="create" id="createUser2">创建账户</a>
 									    <a href="#" class="create">忘记密码？</a>
 								    </div>
 							</div>
@@ -329,10 +332,29 @@
 					</div>
 				</div>
 				<div id="logSuccess">
-					
 					<span id="welcome">欢迎：</span>
 					<a id="exit">退出</a>
+					<div class="listBox">
+						<p id="comVal"></p>
+						<hr>
+						<div class="listLittle">
+							<a href="#">个人资料</a>
+							<a href="#">收货地址</a>
+							<a href="#">我的订单</a>
+							<a href="#">会员权益</a>
+							<a href="#">我的收藏夹</a>
+						</div>
+						<hr>
+						<div class="listBottom">
+							<a class="relogin">登出</a>
+						</div>
+						<span id="foott">
+							
+						</span>
+					</div>
+								
 				</div>
+				
 			</div>
 		</div>
     </div>	
@@ -349,9 +371,14 @@
 		</ul>
 	</div>
 </div>
+<div id="insert">
+</div>
+<div id="insert2">
+</div>
 <!-- banner -->
 <div id="banner">
 </div>
+
 <!-- section1 -->
 
 <div id="hotmian">
@@ -885,6 +912,8 @@
 <script src="js/move1908.js"></script>
 <script src="js/cookieTools.js"></script>
 <script src="js/ajaxTools.js"></script>
+<script src="js/random.js"></script>
+
 <script>
 $("#returnTop").click(function(){
   $("html,body").animate({'scrollTop':0},100)
@@ -967,6 +996,7 @@ function stop1(){
 }
 
  window.onload=function(){
+	 
    	  new Banner(my$("#banner"),
       {
       imgs:["img/19.jpg","img/a.jpg","img/k.jpg","img/e.jpg","img/v.jpg"],
@@ -978,47 +1008,76 @@ function stop1(){
         douColor:"#999999",
         douHighColor:"#333333"
     });
-  
-	 
-regSuccess();  
-$("#logsuc").click(function(){
-	logSuccess();
-	// location.href="index.html";
+
+// regSuccess();	
+
+//id为控件的id
+$("#createUser1").click(function(){
+	
+    $("#insert").load("register.html");
 	
 });
-$("#exit").click(function(){
-	exitLog();
+$("#createUser2").click(function(){
+	
+    $("#insert2").load("register.html");
+	
 });
 
-$("#login1").click(function(){
-    let sendstr = `phonenum=${my$("#phonenum").value}`;
-   ajax1908Promise({
-        "method":"post",
-        "url":"login.php",
-        "datas":sendstr,
-    }).then(function(str){
-        if(str=="1"){
-            addCookie("phonenum",my$("#phonenum").value,7);
-            location.href="index.html";
-        }else{
-            $("#messageBox").innerHTML = "手机号不正确";
-        }
-    },function(){
-        $("#messageBox").innerHTML = "亲，服务器开小差了……";
-    });
 
+$("#logsuc").click(function(){
+	logSuccess();
+	
+	
+});
+// 两个退出登录
+$("#exit").click(function(){
+	exitLog();
+	logSuccess();
+});
+$(".relogin").click(function(){
+	exitLog();
+	logSuccess();
+});
+// 登录按钮请求后台数据
+$("#login1").click(function(){
+  
+
+  console.log("index22"+index22);
+		let sendstr = `phonenum=${my$("#phonenum").value}`;
+		ajax1908Promise({
+			 "method":"post",
+			 "url":"login.php",
+			 "datas":sendstr,
+		 }).then(function(str){
+			 if(str=="1"){
+				 addCookie("phonenum",my$("#phonenum").value,7);
+				 location.href="index.html";
+				
+			 }else{
+				 $("#messageBox").innerHTML = "手机号不正确";
+			 }
+		 },function(){
+			 $("#messageBox").innerHTML = "亲，服务器开小差了……";
+		 });
+		 
+		
 })
-logSuccess();
+// 
+
 $("#login2").click(function(){
+
+	 
     let sendstr = `phonenum=${my$("#phonenum").value}&userpass=${my$("#userpass").value}`;
    ajax1908Promise({
         "method":"post",
         "url":"login.php",
         "datas":sendstr,
+		isAsync:true,
     }).then(function(str){
         if(str=="1"){
             addCookie("phonenum",my$("#phonenum").value,7);
-            location.href="index.html";
+            location.href="index.html?id=2";
+			
         }else{
             $("#messageBox").innerHTML = "手机号不正确";
         }
@@ -1028,10 +1087,47 @@ $("#login2").click(function(){
 	
 })
 
+// window.location.href = "HTMLPage2.htm?#"+id;//id为控件的id
+//	// 获取location.href传递过来的参数 id 
+var Ohref=window.location.href;
+var arrhref=Ohref.split("?id=");
+let receiveVal=arrhref[1];
+if(receiveVal==1){
+	regSuccess();
+}else if(receiveVal==2){
+	logSuccess();
+}
+// 获取登陆成功后的值,将其放在下拉框中
+let comVal=$("#welcome").html();
+$("#comVal").html(comVal);
 
-
-
-
+$("#logSuccess").hover(
+  function () {
+    $(".listBox").css("display","block");
+  },
+  function () {
+    setTimeout(function(){
+				if(!isInside) {
+					$(".listBox").css("display","none");
+					}
+				},100)
+				
+		   	    
+				var isInside = false;
+				$(".listBox").mouseover(function(){
+					isInside = true;
+				 $(".listBox").css("display","block");
+				});
+				
+				$(".listBox").mouseleave(function(){
+					isInside = false;
+				 $(".listBox").css("display","none");
+				});
+		}
+);	
+	
+			
+	
 
 
 // 第二个轮播图
@@ -1068,28 +1164,6 @@ $("#login2").click(function(){
         }
 	}
 
-// let buy=my$(".gbtn");
-
-// 	for(let g=0;g<buy.length;g++){
-		
-// 			buy[g].onmouseenter=function(event){
-// 				let evt = event || window.event;
-			
-// 				this.style.backgroundColor="#d51b51";
-// 				// console.log(this);
-// 				console.log(this.id+":mouseenter");
-
-// 			}
-// 			buy[g].onmouseleave=function(event){
-// 				let evt = event || window.event;
-				
-// 				this.style.backgroundColor="black";
-// 				console.log(this.id+":mouseleave");
-// 			}
-		
-		
-// 	}
-	
 }
 
 
@@ -1181,12 +1255,14 @@ my$("#weixin").onmouseout=function(){
 	this.nextElementSibling.style.display="none";
 }
 function my$(str){
-	if(str.charAt(0)=="#"){
-		return document.getElementById(str.substring(1));
-	}else if(str.charAt(0)=="."){
-		return document.getElementsByClassName(str.substring(1));
-	}else{
-		return document.getElementsByTagName(str);
-	}
-}	
+ 	if(str.charAt(0)=="#"){
+ 		return document.getElementById(str.substring(1));
+ 	}else if(str.charAt(0)=="."){
+ 		return document.getElementsByClassName(str.substring(1));
+ 	}else{
+ 		return document.getElementsByTagName(str);
+ 	}
+ }	
+  		
+
 </script>

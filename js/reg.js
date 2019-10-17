@@ -1,129 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>注册页面</title>
-	<link rel="stylesheet" href="css/iconfont.css">
-	<link rel="stylesheet" href="css/registerSass.css">
-</head>
- <body>
-	<div class="boxMain">
-		<!-- <span class="iconfont icon-cuohao1"></span> -->
-		<span class="imgBoc"></span>
-		<div class="box">
-			<p class="p1">官网会员权益，购正装获积分，畅想明星兑礼。</p>
-			
-			<div class="content" id="tog1">
-				<div class="bottom" >
-					<div class="reg reg1">
-					  	<i class="myi">手机号*</i><input type="text" placeholder="手机号"  class="clearA phone ass" id="phone"  >
-						<label>请输入有效的手机号</label>
-						<label class="secSpan">请输入有效的手机号码</label>
-						<label></label>
-					  </div>
-					 <div class="reg reg2">
-					  	<i class="myi"> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm ass">
-					  	<i class="yzm" id="firy">4462</i> <span class="huan">看不清？<br><a>换一张</a></span>
-					  </div>
-					 <div class="reg reg1">
-					  	<i class="myi">密码*</i>
-						<input type="text" placeholder="请填写密码，至少8个字符" class="clearA ass" id="pass"> 
-						<label>请输入您的密码</label>
-						<label class="secSpan">密码不正确</label>
-						<label class="secSpan">最小长度8位，包含大小写字母和数字（或符号）</label>
-					  </div>
-					 <div class="reg reg2">
-					  	<i class="myi">短信验证码*</i><input type="text" placeholder="短信验证码" class="infor clearA ass" id="information">
-						<label>请输入短信验证码</label>
-						<label class="secSpan" >请输入正确的验证码</label>
-						<input type="button" value="发送" class="send">
-					  </div>
-					 <div class="reg reg1" >
-					  	<i class="myi">确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA ass" >
-					  	<lebal>请输入确认密码</lebal>
-						
-						<lebal class="secSpan">两次密码不一致</lebal>
-					  </div><br>
-					 <div class=" reg baocun">
-						    <em id="eem"><span class="iconfont icon-duihao2"></span></em>
-							<b>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；
-							我已阅读并确认被给予充分机会理解该使用条款和隐私政策的内容。</b>
-					  </div>
-					 <div  class="reg reg3">
-					     <input type="button" value="立即注册" class="regBtn" id="regBtnp">
-					 </div>
-					<div id="messageBox">
-			        </div>
-				 <p class="regg regem">邮箱注册></p>
-			</div>
-				
-		</div>
-			
-			<div class="content" id="tog2" >
-				<div class="bottom">
-					<div class="reg reg1">
-						<i class="myi">邮箱*</i><input type="text" placeholder="邮箱" class="clearA ass"  id="useremail">
-						<label>请输入有效邮箱</label>
-						<label class="secSpan">请输入有效的邮箱</label>
-						<label></label>
-					 </div>
-					 <div class="reg reg2">
-						<i class="myi">手机号*</i><input type="text" placeholder="手机号" class="clearA ass">
-						<label>请输入有效手机号</label>
-						
-						<label class="secSpan">请输入有效的手机号码</label>
-					  </div>
-					  <div class="reg reg1">
-						  <i class="myi">密码*</i><input type="text" placeholder="请填写密码，至少8个字符" class="clearA ass"> 
-						  <label>请输入您的密码</label>
-						  <label class="secSpan">密码不正确</label>
-						  <label class="secSpan">最小长度8位，包含大小写字母和数字（或符号）</label>
-					  </div>
-					 <div class="reg reg2">
-						<i class="myi"> 验证码*</i><input type="text" placeholder="输入验证码" class="shuyzm ass">
-						<i class="yzm" id="secf">4462</i><span class="huan">看不清？<br><a >换一张</a></span>
-					 </div>
-					 <div class="reg reg1" >
-						<i class="myi">确认密码*</i><input type="text" placeholder="请再次输入您的密码" class="clearA ass">
-						<label>请输入确认密码</label>
-						
-						<label class="secSpan" style="display:none;">两次密码不一致</label>
-																				
-					 </div>
-					 <div class="reg reg2">
-						<i class="myi">短信验证码*</i>
-						<input type="text" placeholder="短信验证码" class="infor clearA ass">
-						<label>请输入短信验证码</label>
-						 <label class="secSpan" style="display:none;" >请输入正确的验证码</label>
-						
-						<input type="button" class="send send1" value="发送">
-					 </div>
-					
-					 <div class=" reg baocun">
-						<em id="eem2"><span class="iconfont icon-duihao2"></span></em>
-						<b>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；
-						我已阅读并确认被给予充分机会理解该使用条款和隐私政策的内容。</b>
-					 </div>
-					<div  class="reg reg3">
-					   <input type="button" value="立即注册"  class="regBtn" id="regBtne">
-					</div>
-					<div id="messageBox">
-					</div>	
-					<p class="regg regnum">手机号注册></p>	
-				</div>	  
-				  
-			</div>
-           </div>
-    </div>
 
-	
-</body>
-
-</html>
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/random.js"></script>
-<script src="js/cookieTools.js"></script>
-<script>
 	
 	
 	$(".imgBoc").click(function(){
@@ -162,16 +37,16 @@ $(".regnum").click(function(){
 	
 })  
 // 随机验证码
-my$(".huan")[0].onclick=function(){
+$(".huan").eq(0)click(function(){
 	let num=getMa();
-	my$("#firy").innerHTML=num;
+	$("#firy").html(num);
 	
-}
-my$(".huan")[1].onclick=function(){
+});
+$(".huan").eq(1).click(function(){
 	let num=getMa();
-	my$("#secf").innerHTML=num;
+	$("#secf").html(num);
 	
-}
+})
  
  // 判断输入框是否输入东西
   let inputs=my$(".clearA");
@@ -584,18 +459,18 @@ my$("#regBtnp").onclick = function(){
                 my$("#messageBox").style.color ="red";
                 my$("#messageBox").innerHTML ="注册失败";
             }else if(xhr.responseText=="1"){
+				 addCookie("phonenum",my$("#phonenum").value,7);
 				 
-				 addCookie("phonenum",my$("#phone").value,7);
+				 location.href="index.html";
 				
-				 location.href="index.html?id=1"; // 注册页面跳转
-				             
+               
             }
         }
     }
     //post方式：设置请求头
     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     //post方式：把传给服务器端数据（键值对）放在send函数的参数里。
-    let sendstr = `phonenum=${my$("#phone").value}&pass=${my$("#pass").value}`;
+    let sendstr = `phonenum=${my$("#phonenum").value}&userpass=${my$("#userpass").value}`;
     xhr.send(sendstr);
 
 }
@@ -613,5 +488,4 @@ my$("#regBtnp").onclick = function(){
      
     
 
-</script>
 

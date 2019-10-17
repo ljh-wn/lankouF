@@ -37,9 +37,11 @@ function getCookie(key){
         if(arr[i].startsWith(key+"=")){
             let [,value]=arr[i].split("=");//["username","jzm"]
             return value;
-        }
+        }else{
+			 return null;
+		}
     }
-    return null;
+   
 }
 
 //删除cookie:(cookie不能直接删除，可以通过设置过期时间为过去，进行删除)
@@ -65,11 +67,14 @@ function regSuccess(){
 function logSuccess(){
 	let cookValue=getCookie("phonenum");
 	if(cookValue!=null){
-		$("#logBox").css("display","none");
-		$("#successBox").css("display","none");
-		$("#logSuccess").css("display","block");
-		$("#welcome").html("欢迎："+cookValue);
-		$("#logSuca").css("display","none");
+		
+			$("#logBox").css("display","none");
+			$("#successBox").css("display","none");
+			$("#logSuccess").css("display","block");
+			$("#welcome").html("欢迎："+cookValue);
+			$("#logSuca").css("display","none");
+	
+		
 	
 	}else{
 		$("#logBox").css("display","block");
