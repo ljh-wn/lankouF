@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iconfont.css">
+		<link rel="stylesheet" href="css/footer.css">
+	</head>
+	<body>
+		<div class="bottommain">
+			<div class="bottom2">
+				<div class="btop">
+					<h1>兰蔻中国官方网站</h1>
+					<ul class="bottomli">
+						<li>
+						<img src="img/footer-1.png" alt="">
+						<span>正品保证</span>
+						<p>官方直供原装</p>
+						</li>
+						<li>
+						<img src="img/footer-2.png" alt="">
+						<span>顺丰包邮</span>
+						<p>港澳台偏远地区除外<br>亦可提供普通快递服务</p>
+						</li>
+						<li>
+							<img src="img/footer-3.png" alt="">
+							<span>精美礼盒</span>
+							<p>甄选精美礼盒包装<br>
+							尊享官网购物体验</p>
+						</li>
+						<li>
+							<img src="img/footer-4.png" alt="">
+							<span>绑定公众号</span>
+							<p>首次绑定会员 即赠100积分<br>悦享每月1次柜台免费服务</p>
+						</li>
+					</ul>
+				</div>
+		        <div class="bottomul">
+		         	<ul class="botul">
+		         		<li>
+			         		<p>关于我们</p>
+			         		<a href="#">加入兰蔻</a>
+			         		<a href="#">会员中心</a>
+			         	</li>
+			         	<li>
+			         		<p>联系我们</p>
+			         		<a href="#">线上美容顾问</a>
+			         		<a href="#">订购热线:4008208016</a>
+			         	</li>
+			         	<li>
+			         		<p>配送及退货</p>
+			         	</li>
+			         	<li>
+			         		<p>专柜查询</p>
+			         	</li>
+			         	<li class="special">
+			         		<p>关注我们</p>
+			         		<a href="#" id="weixin">
+			         			<span class="iconfont icon-weixin2
+		                           "></span>
+			         		官方微信
+			         	    </a><div id="imglittle"> 
+			         	    	<img src="img/footer-4.png" alt=""></div>
+			         		
+			         		<span class="iconfont icon-weibo"></span><a href="#" class="weibo">官方微博</a>
+			         	</li>
+		         	</ul>
+		         <div class="email-box">
+			         	<span class="iconfont icon-youjian
+			             "></span><p class="email">电子邮件</p>
+			         	<div class="input">
+			         		<input type="text" placeholder="*请输入您的邮箱" class="emailInput">
+			         		<button class="email-btn">确定</button>
+			         	</div>
+		         </div>
+		         	
+		         		
+		         
+		        </div>
+			</div>
+		</div>
+		<!-- fixed-server -->
+		<div id="server">
+			<div id="returnTop">
+				<img src="img/back-top.png" alt="">
+			</div>
+			<div class="consult">
+				<a href="#"><img src="img/back-info.png" alt=""></a>
+			</div>
+		</div>
+		<!-- footer-->
+		<div class="footer">
+			<p class="banquan">L'OrealChina欧莱雅（中国）有限公司版权 <span></span>中国工商沪ICP备08100043号-34 <span></span>	沪公网安备 31010602001526号</p>
+			<p class="yinsi">
+				<a href="#">使用条款</a>|
+				<a href="#">Kookies政策</a>|
+				<a href="#">隐私政策</a>
+			</p>
+			
+			<p>浏览该网站表示您接受并同意我们使 用cookies为您提供个性化的浏览体验。点击<a href="#" class="policy">Cookies政策</a>了解详情</p>
+		</div>
+		
+	</body>
+</html>
+<script>
+	my$("#weixin").onmouseover=function(){
+		this.nextElementSibling.style.display="block";
+	}
+	my$("#weixin").onmouseout=function(){
+		this.nextElementSibling.style.display="none";
+	}
+	$("#returnTop").click(function(){
+	 $("html,body").animate({'scrollTop':0},100)
+	 });
+	 window.onscroll = function(){
+	 		let server=my$("#server");
+	 		var _scroll = document.body.scrollTop || document.documentElement.scrollTop;
+	 		// document.title = _scroll;
+	 		if(_scroll<=620){
+	 			server.style.display = "none";
+	 			
+	 		}else{
+	 			server.style.display = "block";
+	 		}
+	 		let logo=my$(".logo");
+	 		let navLogo=my$(".navLogo");
+	 		var scroll=document.body.scrollTop || document.documentElement.scrollTop;
+	 		if(scroll>=75){
+	 			logo[0].style.display="none";
+	 			navLogo[0].style.display="block";
+	 
+	 		}else{
+	 			logo[0].style.display="block";
+	 			navLogo[0].style.display="none";
+	 		}
+	 	}
+	function my$(str){
+	 	if(str.charAt(0)=="#"){
+	 		return document.getElementById(str.substring(1));
+	 	}else if(str.charAt(0)=="."){
+	 		return document.getElementsByClassName(str.substring(1));
+	 	}else{
+	 		return document.getElementsByTagName(str);
+	 	}
+	 }	
+</script>

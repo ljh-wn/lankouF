@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/iconfont.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/retrePass.css">
+</head>
+<body>
+	<div id="retreTop">
+		
+	</div>
+	<div class="contentMin">
+		<div class="content">
+			<ul class="uls">
+				<li><a href="#">首页</a></li>
+				<li> <a href="testljh.html">找回密码</a></li>
+			</ul>
+			<div class="reri">
+				<h2>找回密码</h2>
+				<img src="img/register-tit.png" alt="">
+			</div>
+			<div class="retriBox">
+				<div class="section">
+					<ul class="method">
+						<li class="active">1选择找回方式</li>
+						<li>2确认验证信息</li>
+						<li>3修改密码</li>
+						<li>4设置成功</li>
+					</ul>
+					<div class="information">
+						<h3>找回密码</h3>
+						<p>输入您注册时使用的电子邮箱或手机号，进入下一步进行验证</p>
+						<div class="write">
+							<span>您的邮箱/手机*</span>
+							<input type="text" placeholder="请输入邮箱/手机号" class="retreInput">
+							<span>请输入验证码*</span>
+							<input type="text" placeholder="请输入验证码" class="getM retreInput"><b>5566</b><a href="#">看不清?<br>换一张</a> 
+							<input type="button" value="确认" id="confirm">
+						</div>
+					</div>
+				</div>
+				<div class="question">
+					<div class="quesTop">
+						<span>客户服务</span>
+						<p>如果有任何问题，随时联系我们</p>
+						<p>400-820-8016</p>
+						<a href="#">在线咨询</a>
+						<a href="#">关于退货</a>
+						<a href="#">隐私条款</a>
+					</div>
+					<div class="quesTop quesTbot">
+						<span>常见问题</span>
+						<a href="#">哪里可以买到我的产品？</a>
+						<a href="#">如何获取试用装？</a>
+						<a href="#">如何取消订单？</a>
+						<a href="#" class="lookMore">查看更多</a>
+					</div>
+					
+				</div>
+		</div>
+		
+	</div>
+	</div>
+	<div id="retreBottom">
+		
+	</div>
+</body>
+</html>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+	
+	window.onload=function(){
+		$("#retreTop").load("header.html");
+		$("#retreBottom").load("footer.html");
+		$("#returnTop").click(function(){
+		 $("html,body").animate({'scrollTop':0},100)
+		 });
+	}
+	window.onscroll = function(){
+			let server=my$("#server");
+			var _scroll = document.body.scrollTop || document.documentElement.scrollTop;
+			// document.title = _scroll;
+			if(_scroll<=620){
+				server.style.display = "none";
+				
+			}else{
+				server.style.display = "block";
+			}
+			let logo=my$(".logo");
+			let navLogo=my$(".navLogo");
+			var scroll=document.body.scrollTop || document.documentElement.scrollTop;
+			if(scroll>=75){
+				logo[0].style.display="none";
+				navLogo[0].style.display="block";
+	
+			}else{
+				logo[0].style.display="block";
+				navLogo[0].style.display="none";
+			}
+		}
+	
+</script>

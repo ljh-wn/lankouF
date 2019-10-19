@@ -291,10 +291,10 @@
 							<li id="yanzheng1"><a href="#">验证码登录</a></li>
 							<li id="yanzheng2"><a href="#" >密码登录</a></li>
                             <div class="form" id="delu1">
-									<input type="text" placeholder="手机号" ><br>
-									<input type="text" placeholder="输入验证码" class="ma">
+									<input type="text" placeholder="手机号"  class="delDefault"><br>
+									<input type="text" placeholder="输入验证码" class="ma delDefault">
 									<span><em>4118</em></span><p class="sec"><a href="#">看不清？<br>换一张</a></p><br>
-									<input type="text" placeholder="短信验证码" id=infor>
+									<input type="text" placeholder="短信验证码" id="infor" class="delDefault">
 									<input type="submit" class="information" ><br>
 									<input type="button" id="login1" value="登录" class="logonB"><br>
 									<p class="mid">使用第三方账号登录</p>
@@ -306,12 +306,12 @@
 									</ul>
 									<div class="tip">
 										<a class="create" id="createUser1">创建账户</a>
-									    <a href="#" class="create">忘记密码？</a>
+									    <a href="retrePass.html" class="create">忘记密码？</a>
 								    </div>
 							</div>
 							<div class="form form1" id="delu2">
-									<input type="text" placeholder="手机号/邮箱" id="phonenum"><br>
-									<input type="password" placeholder="请填写密码，至少8个字符" id="userpass"><br>
+									<input type="text" placeholder="手机号/邮箱" id="phonenum" class="delDefault"><br>
+									<input type="password" placeholder="请填写密码，至少8个字符" id="userpass" class="delDefault"><br>
 									
 									<input type="button" id="login2" value="登录" class="logonB"><br>
 									<p class="mid">使用第三方账号登录</p>
@@ -1029,6 +1029,24 @@ $("#logsuc").click(function(){
 	
 	
 });
+// input获取焦点时,清空文本框的内容
+$(".delDefault").click(function(){
+	$(this).val("");
+});
+let defaultVal;
+$(".delDefault").focus(function cls() {
+
+        //捕获触发事件的对象，并设置为以下语句的默认对象 
+       
+       $(this).text("");
+    });
+    $(".delDefault").blur(function res() {
+        //捕获触发事件的对象，并设置为以下语句的默认对象 
+   
+       $(this).text("密码不能为空！");
+
+    });
+
 // 两个退出登录
 $("#exit").click(function(){
 	exitLog();

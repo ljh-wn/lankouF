@@ -21,21 +21,36 @@ img{
 /*header*/
 html,body{
 	height:100%;
+	position: relative;
+}
+body{
+	background: white;
 }
 #headermain{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	
+
 	width:100%;
+	z-index:2;
+	
+	
 }
 .header{
 	width:100%;
-	height:138px;
+	margin:0 auto;
+	/*height:138px;*/
 	background: black;
 	position: relative;
 	top:0;
     z-index: 10;
+
 }
 .logo{
 	width:100%;
-	height:45px;
+	height:75px;
 	text-align: center;
 	padding-top: 30px;
 }
@@ -49,16 +64,25 @@ html,body{
 	width: 100%;
 
 }
+
 .navLogo{
-	width:0;
-	height:0;
-	overflow: hidden;
+	width:112px;
+	height:50px;
+	float: left;
+	padding-top: 20px;
+	padding-left:15px;
+	display: none;
+}
+.navLogo img{
+	width:112px;
+	height:30px;
+
 }
 .navL{
 	margin-top: 10px;
 	float:left;
 	height:50px;
-	padding-left: 60px;
+	padding-left: 30px;
 }
 .uls{
 	height:50px;
@@ -131,6 +155,7 @@ position: relative;
 display: inline-block;
 
 position: relative;
+
 }
 
 .navR .tri::before{
@@ -148,7 +173,12 @@ position: relative;
     margin-left: 7px;
 
 }
-
+.navR .tri{
+	display: inline-block;
+	width:30px;
+	height:30px;
+	float: left;
+}
 .navR .fir:hover::before{
 	display: block;
 	opacity: 1;
@@ -175,7 +205,7 @@ display: none;
 	
 }
 .subMeun .nav-meun ul li{
-/*	float：left ;*/
+display: inline-block;
 	text-align: left;
 }
  .uls .nav-meun .type1{
@@ -277,6 +307,14 @@ display: none;
     overflow: visible;
 	width:100%;
 	height:360px;
+}
+.uls .subMeun-img2{
+	height: 445px;
+}
+.uls .subMeun-img2 img{
+    overflow: visible;
+	width:80%;
+	height:100%;
 }
  
 
@@ -453,6 +491,7 @@ height:42px;
 }
 
 /*登录*/
+
 .loginBox{
 		width:361px;
 		height:442px;
@@ -464,6 +503,29 @@ height:42px;
        background: white;
 		
 	}
+	#logSuccess{
+		display: none;
+		float: right;
+		padding-top: 10px;
+		position:relative;
+	}
+	#logSuccess:hover span{
+		color:white;
+	}
+	#logSuccess:hover a{
+		color:white;
+	}
+	#logSuccess span{
+		color:#999999;
+		font-size: 14px;
+		text-align: center;
+		padding-right: 3px;
+	}
+	#logSuccess a{
+			color:#999999;
+			font-size: 14px;
+			text-align: center;
+		}	
 	.top{
 		width:100%;
 		height:34px;
@@ -471,6 +533,65 @@ height:42px;
 
 	
 	}
+	#logSuccess .listBox{
+		width:366px;
+		height:396px;
+		display: none;
+		background: white;
+		position: absolute;
+		top:40px;
+		right:30px;
+		
+	}
+	#logSuccess .listBox p{
+		width:100%;
+		height:94px;
+		margin-top:30px;
+		font-size: 14px;
+		color:black;
+		padding-top: 30px;
+		padding-left:30px;
+	}
+	#logSuccess .listBox .listLittle{
+		width:100%;
+		height:218px;
+		display: flex;
+		flex-flow: column;
+		padding:30px 0;
+		padding-left:30px;
+		/* border-top:1px solid #999999;
+		border-bottom:1px solid #999999; */
+	}
+	 #logSuccess .listBox .listLittle a{
+		text-align: left;
+		width:100%;
+		display: block;
+		height:20%;
+		line-height:35px;
+		color: #B3B3B3;
+		font-size: 14px;
+	}
+	.listBox hr{
+		margin:0;
+	}
+	.listBox  .listBottom{
+		width:100%;
+		height:78px;
+		line-height:78px ;
+		padding-left: 30px;
+		}
+ #logSuccess .listBox  .listBottom .relogin{
+	color: black;
+	font-size: 14px;
+	text-decoration: underline;
+	
+}
+#foott{
+	width:100%;
+	height:5px;
+	display: block;
+	background: #000000;
+}
 	.bottom{
 		width:100%;
 		height:408px;
@@ -491,10 +612,12 @@ height:42px;
 		line-height: 30px;
 		text-align: center;
 	}
-	.bottom .nav-login li a:hover{
+	.bottom #yanzheng1 a{
 		text-decoration: none;
 		color: black;
+		
 	}
+	
 	
 	.top p{
 		text-align: center;
@@ -507,24 +630,33 @@ height:42px;
  p{
     	margin:0;
     }
-	.form input{
+	.form .delDefault{
 		width:270px;
 		height:38px;
 		margin-bottom: 12px;
         border-color:black;
 	}
-	#login{
+	.form .logonB{
 		background: black;
 		color:white;
-		
+		width:270px;
+		height:38px;
+		border:none;
 	}
-	.form .information{
+	.form .logonB:hover{
+		background:#d51b51;
+	}
+	.form #information{
 		background: black;
 		color:white;
 		
 		width:80px;
 		height:40px;
+		border:none;
 
+	}
+	.form #information:hover{
+		background:#d51b51;
 	}
 	.form .sec{
 		height:40px;
@@ -631,3 +763,4 @@ height:42px;
 	.form1{
 		display:none; 
 	}
+	

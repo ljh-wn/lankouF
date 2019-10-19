@@ -1,0 +1,297 @@
+*{
+	margin:0;
+	padding:0;
+}
+a,ul,li{
+	text-decoration: none;
+}
+ul,li{
+	list-style: none;
+}
+/* hufuBanner */
+.hufuTop{
+	width:100%;
+	
+}
+#retreTop{
+	width:100%;
+	overflow: hidden;
+	margin-bottom:138px;
+}
+#retreBottom{
+	width:100%;
+	/* overflow: hidden; */
+	padding-top: 100px;
+}
+.hufuBanner{
+width:1349px;
+
+ background: url(../img/hufu.jpg) center top no-repeat;
+ height:195px;
+ background-size: 100%;
+margin:0 auto;
+	
+	
+}
+.list-inline{
+	width:100%;
+	
+	
+}
+.list-inline li{
+	display: inline-block;
+	 font-size: 14px;
+	 padding:16px 0;
+	
+}
+.list-inline li:nth-child(2)::before{
+	padding: 0 6px;
+	    content: ">";
+	    color: #fff;
+}
+.list-inline li:nth-child(1){
+	padding-left:40px;
+}
+
+.list-inline li a{
+	 color: #fff;
+}
+   
+.introB{
+	width:100%;
+	padding-top:20px;
+}
+.introB h1{
+	height:43px;
+	font-size: 36px;
+	line-height: 43px;
+		padding-left:40px;
+}
+.introB h6{
+	height:21px;
+	font-size: 18px;
+	line-height: 21px;
+	margin:12px 0;
+	font-weight: normal;
+		padding-left:40px;
+}
+.listMain{
+	width:100%;
+	overflow:hidden;
+}
+.listBox{
+	width:1240px;
+	margin:35px  auto;
+	padding:0 20px;
+	overflow: hidden;
+	
+}
+.navlist{
+	float: left;
+	height:391px;
+	width:266px;
+}
+.fuhu{
+	width:100%;
+	height:16px;
+	font-size: 14px;
+	 color: #000;
+	 margin-bottom:32px;
+	 font-weight: 700;
+}
+.navy li{
+	width:100%;
+	margin-bottom: 22px;
+	 font-size: 14px;
+}
+.navy li a{
+color: #999;
+text-decoration: underline;	
+}
+.chonghe{
+	    padding-bottom: 65px;
+}
+.chonghe b{	
+	font-size: 14px;
+	    color: #000;
+	  font-weight: normal;
+	  display: block;
+	    height: 50px;
+	    line-height: 50px;
+	    letter-spacing: 1.5px;
+	}
+	.listright{
+		float: right;
+		width:919px;
+	}
+	.rightTop{
+		overflow: hidden;
+		width:100%;
+	}
+	.rightTop span{
+		float: left;
+		line-height: 40px;
+	}
+	.rightTop .form-control{
+		float: right;
+		width:210px;
+		height:40px;
+		border-radius: 0;
+	}
+	
+	.listProduct{
+		width:100%;
+		
+	}
+	.rightTop .form-control .opt:hover{
+		text-decoration: underline;
+		background: #fff;
+	}
+	.listProduct{
+		width:100%;
+		overflow: hidden;
+		padding-top: 18px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.produS{
+		width:30.33%;
+		margin:0 12px 60px;
+		position:relative;
+	}
+	.prodetails{
+		width:100%;
+		height:188px;
+		
+	}
+	.produS a img{
+		width:100%;
+		height:290px;
+		margin:0 12px;
+	}
+	.probtn{
+		display: none;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height:290px;
+		    white-space: nowrap;
+		    text-align: center;
+		
+		    background: rgba(255,255,255,.55);
+	}
+	.probtn .btnn1{
+		display: block;
+		width:100px;
+		 position: relative;
+		    overflow: hidden;
+		    text-align: center;
+		    white-space: normal;
+		    vertical-align: middle;
+		    font-size: 14px;
+		    padding: 0 20px;
+		    border: 0;
+		  	
+		    color: #fff;
+		    background: #ccc;
+		    border-radius: 0;
+		    min-width: 160px;
+		    height: 42px;
+		    line-height: 42px;
+		text-decoration:none;
+		margin:0 auto;
+	}
+	.probtn .btn-black{
+	margin-top:100px;
+		background: #000000;
+		margin-bottom:20px;
+	
+	}
+	.probtn .btn-black:hover{
+		color: #fff;
+		 background: #d61b52;
+	}
+	.probtn .btn-more{
+		color:black;
+		background:#fff;
+		border:1px solid black;
+	}
+	.produS .tag-hot{
+		display: inline-block;
+		    width: 60px;
+		    height: 30px;
+		    background: #000;
+		    font-size: 14px;
+		    letter-spacing: .75px;
+		    color: #fff;
+		    line-height: 30px;
+		    text-align: center;
+			position: absolute;
+			    top: 0;
+			    right: 0;
+			    z-index: 3;
+	}
+	.ml{
+		width:100%;
+		height:52px;
+		line-height:52px;
+		text-align:center;
+		font-size: 18px;
+		    color: #000;
+		    letter-spacing: 1px;
+			margin-bottom:0;
+		   
+	}
+	.jinghua{
+		font-size: 18px;
+		    color: #999;
+		 margin-bottom:0;
+		    display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    -webkit-line-clamp: 2;
+		    overflow: hidden;
+		   
+			text-align: center;
+	}
+	.jin2{
+		color:black;
+		line-height: 22px;
+		margin-bottom:10px;
+	}
+	.jin1{
+		margin-bottom:40px;
+		height:38px;
+		font-size: 18px;
+		    color: #999;
+		    line-height: 1;
+		    
+		   
+	}
+	.biaoqian{
+		display: flex;
+		position: relative;
+	}
+	.biaoleft{
+		width:50%;
+		float: right;
+		text-align: center;
+		
+	}
+	.biaoleft::after{
+		display: block;
+		  position: absolute;
+		  right: 125px;
+		  bottom: 0;
+		  content: '';
+		  width: 1px;
+		  height: 30px;
+		  background: #dadada;
+	}
+	.biaoqian label{
+		width:50%;
+		float: right;
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+	}
